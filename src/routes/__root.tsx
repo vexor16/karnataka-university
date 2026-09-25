@@ -90,23 +90,50 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Karnataka University Dharwad — Official Website" },
+      {
+        name: "description",
+        content:
+          "Official website of Karnataka University Dharwad: admissions, examinations, results, notifications, departments, research and student services.",
+      },
+      { property: "og:site_name", content: "Karnataka University Dharwad" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@600;700&family=Noto+Sans+Kannada:wght@400;600&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollegeOrUniversity",
+          name: "Karnataka University Dharwad",
+          alternateName: ["Karnatak University Dharwad", "KUD"],
+          url: "https://karnatakauniversity.org/",
+          email: "registrar@kud.ac.in",
+          telephone: "+91-836-2447750",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Pavate Nagar",
+            addressLocality: "Dharwad",
+            postalCode: "580003",
+            addressRegion: "Karnataka",
+            addressCountry: "IN",
+          },
+        }),
+      },
+    ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
